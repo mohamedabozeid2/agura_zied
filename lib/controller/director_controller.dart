@@ -237,9 +237,10 @@ class DirectorController extends GetxController {
     // List<TranscodingUser> transcodingUsers = [];
     // if (activeUsers.isEmpty) {
     // } else if (activeUsers.length == 1) {
-
     // }
+    print("START STREAM");
     engine?.startRtmpStreamWithoutTranscoding(url);
+    print("DONE STREAM");
   }
 
   Future<void> updateStream() async {}
@@ -274,10 +275,15 @@ class DirectorController extends GetxController {
           'http://10.147.17.76:8080/rtc/test/publisher/userAccount/690188597');
       final response = await http.get(url);
       final data = jsonDecode(response.body);
-      print('token:::success $data');
+      AgoraSettings.token = data['rtcToken'];
+      print('token:::success');
+
+      print('token:::${data['rtcToken']}');
+      print("SUCCESs");
     } catch (error) {
       print("ERROR:::token $error");
     }
+
     // await AgoraDiohelper.getData(
     //   url: '/rtc/$channelName/publisher/userAccount/${Constants.uid}',
     // ).then((value) {

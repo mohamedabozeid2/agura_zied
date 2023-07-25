@@ -105,29 +105,29 @@ class HomeScreen extends StatelessWidget {
                   color: Colors.blue,
                   onPressed: () async {
                     print("START");
-                    // try {
-                    //   final url = Uri.parse(
-                    //       'http://10.147.17.76:8080/rtc/test/publisher/userAccount/690188597');
-                    //   final response = await http.get(url);
-                    //   final data = jsonDecode(response.body);
-                    //   print('token:::success');
-                    // } catch (error) {
-                    //   print("ERROR:::token $error");
-                    // }
+                    try {
+                      final url = Uri.parse(
+                          'http://10.147.17.76:8080/rtc/test/publisher/userAccount/690188597');
+                      final response = await http.get(url);
+                      final data = jsonDecode(response.body);
+                      print('token:::success');
+                    } catch (error) {
+                      print("ERROR:::token $error");
+                    }
 
-                    await AgoraDiohelper.getData(
-                      url: '/rtc/test/publisher/userAccount/690188597',
-                    ).then((value) {
-                      print("TEST:::");
-                      AgoraSettings.token = value.data['rtcToken'];
-                      print('token::: ${value.data['rtcToken']}');
-                    }).catchError(
-                      (error) {
-                        print("error:::token $error");
-                      },
-                    ).onError((error, stackTrace) {
-                      print("ERROR::token $error");
-                    });
+                    // await AgoraDiohelper.getData(
+                    //   url: '/rtc/test/publisher/userAccount/690188597',
+                    // ).then((value) {
+                    //   print("TEST:::");
+                    //   AgoraSettings.token = value.data['rtcToken'];
+                    //   print('token::: ${value.data['rtcToken']}');
+                    // }).catchError(
+                    //   (error) {
+                    //     print("error:::token $error");
+                    //   },
+                    // ).onError((error, stackTrace) {
+                    //   print("ERROR::token $error");
+                    // });
                   },
                   child: const Text(
                     'print',

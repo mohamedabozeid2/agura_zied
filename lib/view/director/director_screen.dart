@@ -60,8 +60,9 @@ class DirectorScreen extends StatelessWidget {
                       )
                     : CircularMenuItem(
                         onTap: () {
-                          if (controller.destinations.isNotEmpty) {
+                          if (true) {
                             controller.startStream(url: streamUrl.text.trim());
+                            print("STREAM URL ${streamUrl.text.trim()}");
                           } else {
                             Get.snackbar('Error', 'No Destination',
                                 backgroundColor: Colors.red,
